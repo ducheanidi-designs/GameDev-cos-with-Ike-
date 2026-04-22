@@ -9,6 +9,7 @@ public class CollisionDetector : MonoBehaviour
         if (other.collider.tag == "Obstacle")
         {
             playerMovement.enabled = false;
+            FindObjectOfType<GameManager>().EndGame();
         }
-    }
+    }   
 }
