@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CollisionDetector : MonoBehaviour
 {
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private int points;
+    [SerializeField] private Text pointText;
 
     private void OnCollisionEnter(Collision other)
     {
@@ -12,4 +15,14 @@ public class CollisionDetector : MonoBehaviour
             FindObjectOfType<GameManager>().EndGame();
         }
     }   
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Coin")
+        {
+            points++;
+            pointText.text = points.ToString();
+            other.gameObject.SetActive(false);
+        }
+    }
 }

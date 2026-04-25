@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Ike's Learnable cos.unity
+    path: Assets/Menu Welcome.unity
+    guid: 71aa575f832799a42b3080e9b29928d2
+  - enabled: 1
+    path: Assets/Level 1.unity
     guid: 641bd8c65186ef54f80999dae6edd12d
+  - enabled: 1
+    path: Assets/Level 2.unity
+    guid: 4fb2a40d1e39d5f4a9e74b3434de0a6d
+  - enabled: 1
+    path: Assets/Level 3.unity
+    guid: 35034d11f27dbe14e85200a98a05a2eb
+  - enabled: 1
+    path: Assets/Credits.unity
+    guid: a800443be084f1b41ae3d0de60d9e14f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 4419d82f33d36e848b3ed5af4c8da37e,
       type: 3}
