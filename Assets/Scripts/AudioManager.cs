@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
 
-    public static Audio AudioManager instance;
+    public static AudioManager instance;
 
     void Awake ()
     {
@@ -14,11 +14,11 @@ public class AudioManager : MonoBehaviour
             instance = this;
         else
         {
-            Destory(gameObject);
+            //Destory(gameObject);
             return;
         }
 
-        DontDestoryOnLoad(gameObject);
+        //DontDestoryOnLoad(gameObject);
 
         foreach (Sound s in sounds)
         {

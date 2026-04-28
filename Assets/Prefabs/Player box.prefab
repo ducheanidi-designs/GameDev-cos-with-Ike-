@@ -203,3 +203,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollisionDetector
   playerMovement: {fileID: 1464843100015233971}
+  points: 0
+  pointText: {fileID: 0}

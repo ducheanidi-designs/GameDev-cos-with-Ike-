@@ -14,12 +14,12 @@ public class CollisionDetector : MonoBehaviour
             playerMovement.enabled = false;
             FindObjectOfType<GameManager>().EndGame();
 
-            Instantiate(gameover Clip, transform.position, transform.rotation);
-            GameManager.instance.EndGame();
+            //Instantiate(CrashLose, transform.position, transform.rotation);
+            //GameManager.instance.EndGame();
 
-            FindObjectOfType<AudioManager>().Play("gameover Clip");
+            FindObjectOfType<AudioManager>().Play("CrashLose");
 
-            Destory(gameObject);
+            //Destory(gameObject);
             
         }
     }   
@@ -31,6 +31,13 @@ public class CollisionDetector : MonoBehaviour
             points++;
             pointText.text = points.ToString();
             other.gameObject.SetActive(false);
+
+            //Instantiate(GameBonus, transform.position, transform.rotation);
+            //GameManager.instance.EndGame();
+
+            FindObjectOfType<AudioManager>().Play("GameBonus");
+
+            //Destory(gameObject);
         }
     }
 }
