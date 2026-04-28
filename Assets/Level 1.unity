@@ -753,7 +753,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.954
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -793,6 +793,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!20 &1394137322 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8981697160492932975, guid: 52cff51d182ab474882e8cdc4464dd36,
+    type: 3}
+  m_PrefabInstance: {fileID: 48956495284722774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1481104821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -933,6 +939,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4bdc84cce91f264b8eacce7b07fbad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  sounds:
+  - name: CrashLose
+    clip: {fileID: 8300000, guid: 91acc811bb3de3d41968945744504166, type: 3}
+    volume: 1
+    pitch: 1.02
+    loop: 0
+    source: {fileID: 0}
+  - name: ThemeMelody
+    clip: {fileID: 8300000, guid: 8ef41b98aab1c1a48bc979edd6b60710, type: 3}
+    volume: 0.316
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!4 &1661488091
 Transform:
   m_ObjectHideFlags: 0
@@ -1217,6 +1236,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3881237461499416124, guid: 67948bf2922a4cb4d88695ea22360944,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1394137322}
     - target: {fileID: 4005403120309764215, guid: 67948bf2922a4cb4d88695ea22360944,
         type: 3}
       propertyPath: pointText
