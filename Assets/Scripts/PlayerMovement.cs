@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float sidewaysSpeed = 1000f;
 
     [SerializeField] private PlayerInput playerInput;
-    private InputAction moveAction;
+    [SerializeField] private InputAction moveAction;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,5 +35,7 @@ public class PlayerMovement : MonoBehaviour
         {
             FindObjectOfType<GameManager>().EndGame();
         }
+
+        
     }
 }

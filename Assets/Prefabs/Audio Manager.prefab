@@ -53,7 +53,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ThemeMelody
     clip: {fileID: 8300000, guid: 8ef41b98aab1c1a48bc979edd6b60710, type: 3}
-    volume: 0.05
+    volume: 0.025
     pitch: 1
     loop: 1
     source: {fileID: 0}

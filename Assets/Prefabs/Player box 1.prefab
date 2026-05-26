@@ -296,6 +296,9 @@ MonoBehaviour:
   playerMovement: {fileID: 300835750027455762}
   points: 0
   pointText: {fileID: 0}
+  explosion: {fileID: 0}
+  radius: 8
+  force: 500
 --- !u!1 &1470070741923067840
 GameObject:
   m_ObjectHideFlags: 0
