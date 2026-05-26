@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7718542924697035029}
   - component: {fileID: 5778401375626450226}
   - component: {fileID: 1612315331687510224}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eyes- Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 300835750027455762}
   - component: {fileID: 3881237461499416124}
   - component: {fileID: 4005403120309764215}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player box 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,6 +127,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6549208350737317841}
+  - {fileID: 8223872905001625573}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7932550232657325555
@@ -250,6 +251,15 @@ MonoBehaviour:
   forwardSpeed: 700
   sidewaysSpeed: 20
   playerInput: {fileID: 3881237461499416124}
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7aafa9fb-38c6-471b-97e3-8c8797ce71d1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &3881237461499416124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,6 +309,37 @@ MonoBehaviour:
   explosion: {fileID: 0}
   radius: 8
   force: 500
+--- !u!1 &1194766777628697617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8223872905001625573}
+  m_Layer: 3
+  m_Name: FollowCam virtual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8223872905001625573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194766777628697617}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1419310356462119655}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1470070741923067840
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +351,7 @@ GameObject:
   - component: {fileID: 9009153036651917698}
   - component: {fileID: 7921734174791038920}
   - component: {fileID: 1096132568229975622}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Part-wheel.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +441,7 @@ GameObject:
   - component: {fileID: 6146154646388529382}
   - component: {fileID: 2479332112184872897}
   - component: {fileID: 830311319929257921}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Antenna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +531,7 @@ GameObject:
   - component: {fileID: 1579418853770484875}
   - component: {fileID: 9160818363084695361}
   - component: {fileID: 1397881962605129694}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cutting for wheel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -578,7 +619,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6036810894507920357}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +652,7 @@ GameObject:
   - component: {fileID: 1162976709449087747}
   - component: {fileID: 6512457486678925070}
   - component: {fileID: 7580675423359933924}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hand-BOT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -700,7 +741,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2425685854737508061}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Empty.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -733,7 +774,7 @@ GameObject:
   - component: {fileID: 2888706307880911307}
   - component: {fileID: 2674829743197280709}
   - component: {fileID: 6386016807917994226}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cutting for wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -823,7 +864,7 @@ GameObject:
   - component: {fileID: 1612517652959369363}
   - component: {fileID: 4691240948082768670}
   - component: {fileID: 7696474548064298776}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Neck-bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -913,7 +954,7 @@ GameObject:
   - component: {fileID: 4623679546030991792}
   - component: {fileID: 8828140849086047995}
   - component: {fileID: 4340789544716573705}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Chest-Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1004,7 +1045,7 @@ GameObject:
   - component: {fileID: 6564699731102516477}
   - component: {fileID: 6730963401848194032}
   - component: {fileID: 5458198380991225636}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ear- Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1095,7 +1136,7 @@ GameObject:
   - component: {fileID: 3931567739190213984}
   - component: {fileID: 5417645250698505819}
   - component: {fileID: 383821946173447089}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Antenna head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1185,7 +1226,7 @@ GameObject:
   - component: {fileID: 8174127994356413131}
   - component: {fileID: 2480991659831239008}
   - component: {fileID: 9061776960104871355}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Part-wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1275,7 +1316,7 @@ GameObject:
   - component: {fileID: 6973665653188747790}
   - component: {fileID: 6578235522399277125}
   - component: {fileID: 1338816221025916428}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1365,7 +1406,7 @@ GameObject:
   - component: {fileID: 6549208350737317841}
   - component: {fileID: 7346703911424940009}
   - component: {fileID: 3451064920980472280}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body-BOT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1471,7 +1512,7 @@ GameObject:
   - component: {fileID: 2004968646815003588}
   - component: {fileID: 3834392979751629125}
   - component: {fileID: 8983127676037029188}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bolt wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1561,7 +1602,7 @@ GameObject:
   - component: {fileID: 5556968943262399925}
   - component: {fileID: 1779571000369928425}
   - component: {fileID: 5624273812581799578}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Head Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
