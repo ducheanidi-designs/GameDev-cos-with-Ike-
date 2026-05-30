@@ -182,11 +182,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vanguard By T. Choonyung
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: b1b75098925ddea40afe5e7c7c43fa58,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a8efd539d7fc5c943a65a900b117b376, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1b75098925ddea40afe5e7c7c43fa58, type: 3}
+--- !u!95 &285665754 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: b1b75098925ddea40afe5e7c7c43fa58,
+    type: 3}
+  m_PrefabInstance: {fileID: 285665753}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &375852990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -331,7 +342,7 @@ MonoBehaviour:
     m_Flags: 0
   canTarget: {fileID: 921515387}
   pitchClampValue: {x: 10, y: 30}
-  anim: {fileID: 0}
+  anim: {fileID: 285665754}
 --- !u!114 &598122243
 MonoBehaviour:
   m_ObjectHideFlags: 0

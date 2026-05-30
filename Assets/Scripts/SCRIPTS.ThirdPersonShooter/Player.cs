@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+
         moveAction = playerInput.actions["Move"];
         lookAction = playerInput.actions["Look"];
     }
@@ -26,6 +28,9 @@ public class Player : MonoBehaviour
     {
         Vector2 inputVector = moveAction.ReadValue<Vector2>();
 
+        anim.SetFloat("InputX", inputVector.x);
+        anim.SetFloat("InputY", inputVector.y);
+        
         inputVector = inputVector.normalized;
 
         Vector3 movDir = transform.right * inputVector.x + transform.forward * inputVector.y;
