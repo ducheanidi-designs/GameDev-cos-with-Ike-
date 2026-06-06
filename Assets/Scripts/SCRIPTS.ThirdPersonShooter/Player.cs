@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
     [SerializeField] private Vector2 pitchClampValue;
 
     [SerializeField] private Animator anim;
+
+    [SerializeField] private Transform debugSphere;
+
     private float xRotation = 0f;
 
     void Start()
@@ -42,6 +45,16 @@ public class Player : MonoBehaviour
        Debug.Log(lookInput);
 
        HandleRotation();
+
+       Vector2 screenCenter = new Vector2(Screen.width/2f, Screen.height/2f);
+
+       Ray ray = Camera.main.ScreenPointToRay(screenCenter);
+
+       if (Physics.Raycast(ray, out RaycastHit hitInfo, 999f))
+        {
+            debugSphere.position = hitInfo.point;
+            Debug.DrawLine(Camera.main.transform.position, hitInfo.point, Color.red);
+        }
 
     }
 
