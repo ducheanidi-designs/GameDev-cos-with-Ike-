@@ -1,14 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PRACTPlayerMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float forwardSpeed = 2000f;
     [SerializeField] private float sidewaysSpeed = 1000f;
 
     [SerializeField] private PlayerInput playerInput;
-    private InputAction moveAction;
+    [SerializeField] private InputAction moveAction;
 
     void Start()
     {
@@ -25,14 +25,9 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(sidewaysSpeed * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
 
-        if (input.x < 0)
+        if(input.x < 0)
         {
             rb.AddForce(-sidewaysSpeed * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-        }
-
-        if(rb.position.y < -1f)
-        {
-             FindObjectOfType<GameManager>().EndGame();
         }
     }
 }

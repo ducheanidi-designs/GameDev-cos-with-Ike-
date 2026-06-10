@@ -12,10 +12,10 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
-    public void TakeDamge(float damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        
         if (currentHealth <= 0)
         {
             Instantiate(explode, transform.position, Quaternion.identity);

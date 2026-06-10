@@ -132,8 +132,8 @@ GameObject:
   - component: {fileID: 830308106}
   - component: {fileID: 830308105}
   - component: {fileID: 830308104}
-  - component: {fileID: 830308109}
   - component: {fileID: 830308110}
+  - component: {fileID: 830308111}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -261,22 +261,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &830308109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830308103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0190e54b679098a49b8819e626ec9ae6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Movement1
-  rb: {fileID: 830308104}
-  forwardForce: 2000
-  sidewaysForce: 70
-  playerInput: {fileID: 830308110}
 --- !u!114 &830308110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +292,31 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &830308111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830308103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26252a24fe766a6448c2cd7615f2430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PRACTPlayerMovement
+  rb: {fileID: 830308104}
+  forwardSpeed: 700
+  sidewaysSpeed: 100
+  playerInput: {fileID: 830308110}
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1917f99f-3122-4964-ac07-9c62943d03a2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1 &916641431
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +329,6 @@ GameObject:
   - component: {fileID: 916641434}
   - component: {fileID: 916641433}
   - component: {fileID: 916641432}
-  - component: {fileID: 916641436}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -446,19 +454,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &916641436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916641431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e87e5c8f06d227d4cb43657c141faa64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  player: {fileID: 830308108}
 --- !u!1 &1461821545
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,9 +6,14 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
 
+    [SerializeField] private float weaponDamage;
+    [SerializeField] private ParticleSystem muzzleFlash;
+
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private InputAction moveAction;
     [SerializeField] private InputAction lookAction;
+    [SerializeField] private InputAction attackAction;
+
 
     [SerializeField] private Transform canTarget;
     [SerializeField] private Vector2 pitchClampValue;
@@ -25,6 +30,7 @@ public class Player : MonoBehaviour
 
         moveAction = playerInput.actions["Move"];
         lookAction = playerInput.actions["Look"];
+        attackAction = playerInput.actions["Attack"];
     }
 
     void Update()
@@ -50,28 +56,47 @@ public class Player : MonoBehaviour
 
        Ray ray = Camera.main.ScreenPointToRay(screenCenter);
 
-       if (Physics.Raycast(ray, out RaycastHit hitInfo, 999f))
+      if (Physics.Raycast(ray, out RaycastHit hitInfo, 999f))
+            {
+                debugSphere.position = hitInfo.point;
+                Debug.DrawLine(Camera.main.transform.position, hitInfo.point, Color.red);
+            }
+            
+      if (attackAction.WasPressedThisFrame())
+      {
+        Shoot(ray);
+      }
+    }
+
+    void Shoot(Ray ray)
         {
-            debugSphere.position = hitInfo.point;
-            Debug.DrawLine(Camera.main.transform.position, hitInfo.point, Color.red);
+            muzzleFlash.Play();
+                if (Physics.Raycast(ray, out RaycastHit hitInfo, 999f))
+                {
+                    EnemyHealth enemyHealth = hitInfo.collider.GetComponent<EnemyHealth>();
+
+                    if (enemyHealth != null)
+                    {
+                        enemyHealth.TakeDamage(weaponDamage);
+                    }
+                }
         }
 
-    }
-
     void HandleRotation()
-    {
-        Vector2 lookInput = lookAction.ReadValue<Vector2>();
+        {
+            Vector2 lookInput = lookAction.ReadValue<Vector2>();
 
-        // LEFT/RIGHT - Rotate camera target (and player follows)
-        transform.Rotate(Vector3.up * lookInput.x);
+            // LEFT/RIGHT - Rotate camera target (and player follows)
+            transform.Rotate(Vector3.up * lookInput.x);
 
-        // player faces camera direction
-        float camYaw = transform.eulerAngles. y;
-        transform.rotation = Quaternion.Euler(0, camYaw, 0);
+            // player faces camera direction
+            float camYaw = transform.eulerAngles. y;
+            transform.rotation = Quaternion.Euler(0, camYaw, 0);
 
-        //UP/DOWN
-        xRotation -= lookInput.y;
-        xRotation = Mathf. Clamp(xRotation, -pitchClampValue.x, pitchClampValue.y);
-        canTarget.rotation = Quaternion.Euler(xRotation, camYaw, 0f);
-    }
+            //UP/DOWN
+            xRotation -= lookInput.y;
+            xRotation = Mathf. Clamp(xRotation, -pitchClampValue.x, pitchClampValue.y);
+            canTarget.rotation = Quaternion.Euler(xRotation, camYaw, 0f);
+        }
+    
 }
