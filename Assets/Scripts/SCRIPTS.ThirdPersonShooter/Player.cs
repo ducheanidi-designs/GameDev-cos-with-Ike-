@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float weaponDamage;
     [SerializeField] private ParticleSystem muzzleFlash;
-
+    [SerializeField] private GameObject impact;
+    
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private InputAction moveAction;
     [SerializeField] private InputAction lookAction;
@@ -48,7 +49,7 @@ public class Player : MonoBehaviour
         // transform.forward = Vector3.Slerp(transform.forward, movDir, rotateSpeed * Time.deltaTime);
 
        Vector2 lookInput = lookAction.ReadValue<Vector2>();
-       Debug.Log(lookInput);
+       // Debug.Log(lookInput);
 
        HandleRotation();
 
@@ -73,14 +74,19 @@ public class Player : MonoBehaviour
             muzzleFlash.Play();
                 if (Physics.Raycast(ray, out RaycastHit hitInfo, 999f))
                 {
+                    // Debug.Log(hitInfo.collider.name);
                     EnemyHealth enemyHealth = hitInfo.collider.GetComponent<EnemyHealth>();
 
                     if (enemyHealth != null)
                     {
                         enemyHealth.TakeDamage(weaponDamage);
+                        Instantiate(impact, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
                     }
                 }
         }
+
+
+
 
     void HandleRotation()
         {
