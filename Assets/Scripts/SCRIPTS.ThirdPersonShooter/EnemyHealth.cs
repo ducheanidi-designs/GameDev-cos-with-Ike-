@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -18,9 +19,14 @@ public class EnemyHealth : MonoBehaviour
         
         if (currentHealth <= 0)
         {
-            // Debug.Log("Enemy is dead");
-            Instantiate(explode, transform.position, Quaternion.identity);
+            StartCoroutine(Die());
         }
+    }
 
+    IEnumerator Die()
+    {
+        Instantiate (explode, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(.5f);
+        gameObject.SetActive(false);
     }
 }

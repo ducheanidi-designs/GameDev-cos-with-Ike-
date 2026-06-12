@@ -12,7 +12,7 @@ public class PRACTPlayerMovement : MonoBehaviour
 
     void Start()
     {
-        moveAction = playerInput.actions["Move"];
+        moveAction = playerInput.actions ["Move"];
     }
 
     void Update()
@@ -25,7 +25,7 @@ public class PRACTPlayerMovement : MonoBehaviour
             rb.AddForce(sidewaysSpeed * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
 
-        if(input.x < 0)
+        if (input.x < 0)
         {
             rb.AddForce(-sidewaysSpeed * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
