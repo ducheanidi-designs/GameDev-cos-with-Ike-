@@ -23,6 +23,10 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Transform debugSphere;
 
+    [SerializeField] private float fireRate;
+
+    private float nextTimeToFire;
+
     private float xRotation = 0f;
 
     void Start()
@@ -74,13 +78,14 @@ public class Player : MonoBehaviour
             muzzleFlash.Play();
                 if (Physics.Raycast(ray, out RaycastHit hitInfo, 999f))
                 {
+                    Instantiate(impact, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
                     // Debug.Log(hitInfo.collider.name);
                     EnemyHealth enemyHealth = hitInfo.collider.GetComponent<EnemyHealth>();
 
                     if (enemyHealth != null)
                     {
                         enemyHealth.TakeDamage(weaponDamage);
-                        Instantiate(impact, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                        
                     }
                 }
         }
