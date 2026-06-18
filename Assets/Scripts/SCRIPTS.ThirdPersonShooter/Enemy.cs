@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private NavMeshAgent agent;
 
-    [SerializeField] private Transform[] wayPoints;
+    [SerializeField] private GameObject[] wayPoints;
 
     [SerializeField] private bool inRange;
 
@@ -32,6 +32,9 @@ public class Enemy : MonoBehaviour
         void Start()
     {
         randNum = Random.Range(0, wayPoints.Length);
+        target = GameObject.Find("Player").transform;
+
+        wayPoints = GameObject.FindGameObjectsWithTag("WP");
     }
 
     void Update()
@@ -41,13 +44,13 @@ public class Enemy : MonoBehaviour
         CheckPlayerDis();
         wayP = randNum;
 
-        dis = Vector3.Distance (transform.position, wayPoints[wayP].position);
+        dis = Vector3.Distance (transform.position, wayPoints[wayP].transform.position);
 
         if (!inRange)
         {
             anim.SetFloat("InputY", 1f);
 
-            agent.SetDestination(wayPoints[wayP].position);
+            agent.SetDestination(wayPoints[wayP].transform.position);
 
             if (dis < 5)
             {

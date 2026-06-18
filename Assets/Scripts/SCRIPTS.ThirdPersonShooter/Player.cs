@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -24,6 +26,11 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform debugSphere;
 
     [SerializeField] private float fireRate;
+    [SerializeField] private int maxAmmo;
+    [SerializeField] private int ammo;
+    [SerializeField] private TextMeshProUGUI ammoText;
+    [SerializeField] private float coolDownTime;
+
 
     private float nextTimeToFire;
 
@@ -33,6 +40,8 @@ public class Player : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
 
+        ammo = maxAmmo;
+
         moveAction = playerInput.actions["Move"];
         lookAction = playerInput.actions["Look"];
         attackAction = playerInput.actions["Attack"];
@@ -40,6 +49,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        ammoText.text = ammo.ToString();
+       
+
         Vector2 inputVector = moveAction.ReadValue<Vector2>();
 
         anim.SetFloat("InputX", inputVector.x);
@@ -74,7 +86,10 @@ public class Player : MonoBehaviour
     }
 
     void Shoot(Ray ray)
+    {
+        if (ammo > 0)
         {
+            ammo -= 1;
             muzzleFlash.Play();
                 if (Physics.Raycast(ray, out RaycastHit hitInfo, 999f))
                 {
@@ -89,6 +104,12 @@ public class Player : MonoBehaviour
                     }
                 }
         }
+        else
+        {
+            StartCoroutine(CoolDown(coolDownTime));
+            //return;
+        }
+    }
 
 
 
@@ -109,5 +130,11 @@ public class Player : MonoBehaviour
             xRotation = Mathf. Clamp(xRotation, -pitchClampValue.x, pitchClampValue.y);
             canTarget.rotation = Quaternion.Euler(xRotation, camYaw, 0f);
         }
+
+    IEnumerator CoolDown(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        ammo = maxAmmo;
+    }
     
 }

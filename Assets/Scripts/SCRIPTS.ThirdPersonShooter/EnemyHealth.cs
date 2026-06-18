@@ -22,6 +22,8 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth -= damage;
 
+        healthPercentage = (currentHealth / maxHealth) * 100;
+
         healthBar.fillAmount = currentHealth/maxHealth;
 
         if (healthPercentage > 25 && healthPercentage <= 75)
@@ -42,7 +44,7 @@ public class EnemyHealth : MonoBehaviour
     IEnumerator Die()
     {
         Instantiate (explode, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.1f);
         gameObject.SetActive(false);
     }
 }
