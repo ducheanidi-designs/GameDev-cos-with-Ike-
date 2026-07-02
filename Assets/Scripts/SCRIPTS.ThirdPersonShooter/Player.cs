@@ -66,7 +66,9 @@ public class Player : MonoBehaviour
         anim.SetFloat("InputX", inputVector.x);
         anim.SetFloat("InputY", inputVector.y);
         
-        inputVector = inputVector.normalized;
+        if(isAlive)
+        {
+             inputVector = inputVector.normalized;
 
         Vector3 movDir = transform.right * inputVector.x + transform.forward * inputVector.y;
         transform.position += movDir * moveSpeed* Time.deltaTime;
@@ -88,10 +90,13 @@ public class Player : MonoBehaviour
                 Debug.DrawLine(Camera.main.transform.position, hitInfo.point, Color.red);
             }
             
-      if (attackAction.WasPressedThisFrame())
-      {
-        Shoot(ray);
-      }
+      if (attackAction.IsPressed() && Time.time >= nextTimeToFire)
+            {
+                nextTimeToFire = Time.time + 1/fireRate;
+                Shoot(ray);
+            }
+        }
+       
     }
 
     void Shoot(Ray ray)

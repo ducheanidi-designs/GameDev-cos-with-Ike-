@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float healthPercentage;
 
     [SerializeField] private Player player;
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -12,7 +12,7 @@ public class SpawnManager : MonoBehaviour
         for (int i = 0; i < botCount; i++)
         {
             Vector3 randomPos = new Vector3(Random.Range(-range/2f, range/2f), 0, Random.Range(-range/2f, range/2f));
-            Instantiate (bots, randomPos, Quaternion.identity);
+            GameObject bot = Instantiate (bots, transform.position + randomPos, Quaternion.identity);
         }
     }
 

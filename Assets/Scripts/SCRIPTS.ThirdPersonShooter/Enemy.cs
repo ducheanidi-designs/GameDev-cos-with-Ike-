@@ -34,6 +34,8 @@ public class Enemy : MonoBehaviour
 
     public bool isAlive;
 
+    private Player player;
+
     void Start()
     {
         isAlive = true;
@@ -43,32 +45,43 @@ public class Enemy : MonoBehaviour
         wayPoints = GameObject.FindGameObjectsWithTag("WP");
 
         die = Animator.StringToHash("Die");
+
+        player = FindFirstObjectByType<Player>();
     }
 
     void Update()
     {
+         if (isAlive == true)
+              {
+                CheckPlayerDis();
+              }
+        else
+        {
+            inRange = false;
+        }      
+
         if (isAlive == true)
         {
               ray = new Ray(transform.position, transform.forward); 
 
-        CheckPlayerDis();
-        wayP = randNum;
+                     
+            wayP = randNum;
 
-        dis = Vector3.Distance (transform.position, wayPoints[wayP].transform.position);
+            dis = Vector3.Distance (transform.position, wayPoints[wayP].transform.position);
 
-        if (!inRange)
-        {
-            anim.SetFloat("InputY", 1f);
-
-            agent.SetDestination(wayPoints[wayP].transform.position);
-
-            if (dis < 5)
+            if (!inRange)
             {
-                Debug.Log("Turn");
-                randNum = Random.Range(0, wayPoints.Length);
-              
-            }
-        }    
+                anim.SetFloat("InputY", 1f);
+
+                agent.SetDestination(wayPoints[wayP].transform.position);
+
+                if (dis < 5)
+                {
+                    Debug.Log("Turn");
+                    randNum = Random.Range(0, wayPoints.Length);
+                
+                }
+            }    
 
         else
         {
