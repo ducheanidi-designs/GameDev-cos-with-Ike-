@@ -11,6 +11,8 @@ public class EnemyHealth : MonoBehaviour
     
     [SerializeField] private Image healthBar;
     [SerializeField] private float healthPercentage;
+
+    [SerializeField] private Enemy enemy;
     
     private void Start()
     {
@@ -37,14 +39,15 @@ public class EnemyHealth : MonoBehaviour
         
         if (currentHealth <= 0)
         {
+            enemy.isAlive = false;
             StartCoroutine(Die());
         }
     }
 
     IEnumerator Die()
     {
-        Instantiate (explode, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(.1f);
+        enemy.Die();
+        yield return new WaitForSeconds(5f);
         gameObject.SetActive(false);
     }
 }

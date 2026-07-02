@@ -36,6 +36,11 @@ public class Player : MonoBehaviour
 
     private float xRotation = 0f;
 
+    int die;
+
+    public bool isAlive;
+
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -45,6 +50,10 @@ public class Player : MonoBehaviour
         moveAction = playerInput.actions["Move"];
         lookAction = playerInput.actions["Look"];
         attackAction = playerInput.actions["Attack"];
+
+        die = Animator.StringToHash("Die");
+
+        isAlive = true;
     }
 
     void Update()
@@ -111,8 +120,10 @@ public class Player : MonoBehaviour
         }
     }
 
-
-
+    public void Die()
+    {
+        anim.CrossFade(die, .025f);
+    }
 
     void HandleRotation()
         {

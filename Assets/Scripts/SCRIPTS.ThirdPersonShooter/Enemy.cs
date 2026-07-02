@@ -22,24 +22,34 @@ public class Enemy : MonoBehaviour
 
     private float nextTimeToFire;
 
-    private Ray ray;
-    
-
     public int wayP = 0;
 
     public int randNum;
 
-        void Start()
+    public int botIndex = 0;
+
+    private Ray ray;
+    
+    int die;
+
+    public bool isAlive;
+
+    void Start()
     {
+        isAlive = true;
         randNum = Random.Range(0, wayPoints.Length);
         target = GameObject.Find("Player").transform;
 
         wayPoints = GameObject.FindGameObjectsWithTag("WP");
+
+        die = Animator.StringToHash("Die");
     }
 
     void Update()
     {
-        ray = new Ray(transform.position, transform.forward); 
+        if (isAlive == true)
+        {
+              ray = new Ray(transform.position, transform.forward); 
 
         CheckPlayerDis();
         wayP = randNum;
@@ -83,7 +93,11 @@ public class Enemy : MonoBehaviour
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, tarRot, 200f * Time.deltaTime);
                 }
             }
-        }         
+        }      
+
+        }
+
+         
                                                                                                               
 
     }
@@ -100,6 +114,11 @@ public class Enemy : MonoBehaviour
         {
             inRange = false;
         }
+    }
+
+    public void Die()
+    {
+        anim.CrossFade(die, .025f);
     }
 
     void Shoot()
