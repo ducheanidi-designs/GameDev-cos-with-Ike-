@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-         if (isAlive == true)
+         if (player.isAlive == true)
               {
                 CheckPlayerDis();
               }
